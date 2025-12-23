@@ -13,6 +13,28 @@ const SignUpScreen = ({ formData, setFormData }) => {
     });
   };
 
+  const handleSubmit = () => {
+    const requiredFields = ["fullName", "phone", "email", "password", "option"];
+
+    const hasRequireFields = requiredFields.every(
+      (key) => formData[key]?.trim() !== ""
+    );
+
+    const isEmailFilled = formData.email?.includes("@");
+    const isPasswordFilled = formData.password?.length >= 6;
+    const isPhoneValid = /^\d{10,15}$/.test(formData.phone);
+
+    const isFormFilled =
+      hasRequireFields && isEmailFilled && isPasswordFilled && isPhoneValid;
+
+    if (!isFormFilled) {
+      alert("Data is not filled. Please fill all fields");
+      return;
+    }
+
+    navigate("/");
+  };
+
   const navigate = useNavigate();
 
   return (
@@ -146,7 +168,7 @@ const SignUpScreen = ({ formData, setFormData }) => {
         </div>
 
         <button
-          onClick={() => navigate("/")}
+          onClick={handleSubmit}
           className="w-full mt-14 bg-[#7431FE] p-2 rounded-sm text-white font-semibold cursor-pointer"
         >
           Create Account
