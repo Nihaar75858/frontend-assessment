@@ -1,13 +1,13 @@
-import LandingPage from './pages/LandingPage'
-import './App.css'
+import LandingPage from "./pages/LandingScreen";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
 
 function App() {
-
   return (
-    <>
-      <LandingPage />
-    </>
-  )
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
