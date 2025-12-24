@@ -75,6 +75,7 @@ dist
 
 ## Project Structure
 
+```bash
 PopX-Auth
 ├── src/
 | ├── assets/
@@ -92,5 +93,6 @@ PopX-Auth
 ├── README.md
 ├── tailwind.config.js
 └── vite.config.js
+```
 
 ---
